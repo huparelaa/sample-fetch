@@ -53,8 +53,6 @@ const main = async () => {
                     responseResult = response;
                     urlResult = url;
                     break;
-                }else{
-                    console.log("---");
                 }
             }
             if (responseResult) {
