@@ -4,7 +4,7 @@ const api = axios.create({
     baseURL: "https://api.unticketparabernabeu.com/usuario/"
 });
 
-const options = ["1","2","3","4","5","6","7","8","9","0","a","b","c","d","e","f","g","h","i","j","k","l","m","n","ñ","o","p","q","r","s","t","u","v","w","x","y","z"]
+const options = ["1","2","3","4","5","6","7","8","9","0","A","B","C","D","E","F","G","H","I","J","K","L","M","N","Ñ","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
 
 const login = async (email, clave) => {
     try {
@@ -47,13 +47,14 @@ const main = async () => {
         for (let j = 0; j < options.length; j++) {
             for (let k = 0; k < options.length; k++) {
                 const url = `1078/2018/${options[i]}${options[j]}${options[k]}`;
-                console.log(`Probando la url ${url}`);
                 const response = await putApi(url, token);
                 if (response) {
                     console.log(`La url ${url} fue exitosa`);
                     responseResult = response;
                     urlResult = url;
                     break;
+                }else{
+                    "---";
                 }
             }
             if (responseResult) {
