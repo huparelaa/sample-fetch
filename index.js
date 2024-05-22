@@ -46,6 +46,7 @@ const main = async () => {
         for (let j = 0; j < options.length; j++) {
             for (let k = 0; k < options.length; k++) {
                 const url = `1078/2018/${options[i]}${options[j]}${options[k]}`;
+                console.log(`Probando la url ${url}`);
                 const response = await putApi(url, token);
                 if (response) {
                     console.log(`La url ${url} fue exitosa`);
