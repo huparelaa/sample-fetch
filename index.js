@@ -54,7 +54,7 @@ const main = async () => {
                     urlResult = url;
                     break;
                 }else{
-                    "---";
+                    console.log("---");
                 }
             }
             if (responseResult) {
