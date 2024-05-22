@@ -41,7 +41,8 @@ const putApi = async ( url, token ) => {
 
 const main = async () => {
     const token = await getToken();
-    console.log(token)
+    let responseResult = '';
+    let urlResult = '';
     for (let i = 0; i < options.length; i++) {
         for (let j = 0; j < options.length; j++) {
             for (let k = 0; k < options.length; k++) {
@@ -50,10 +51,21 @@ const main = async () => {
                 const response = await putApi(url, token);
                 if (response) {
                     console.log(`La url ${url} fue exitosa`);
+                    responseResult = response;
+                    urlResult = url;
+                    break;
                 }
             }
+            if (responseResult) {
+                break;
+            }
+        }
+        if (responseResult) {
+            break;
         }
     }
+    console.log(responseResult);
+    console.log(urlResult);
 }
 
 main();
