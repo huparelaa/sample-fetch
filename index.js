@@ -26,24 +26,29 @@ const getToken = async () => {
 
 const putApi = async ( url, token ) => {
     try {
-        const response = await api.put(url, { headers: { Authorization: `Bearer ${token}` } });
+        const response = await api.put(url, {}, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        });
         return response.data;
     } catch (error) {
         return false;
+        return error.response;
     }
 }
 
 
 const main = async () => {
     const token = await getToken();
-    const url = "1078/2018"
+    console.log(token)
     for (let i = 0; i < options.length; i++) {
         for (let j = 0; j < options.length; j++) {
             for (let k = 0; k < options.length; k++) {
                 const url = `1078/2018/${options[i]}${options[j]}${options[k]}`;
                 const response = await putApi(url, token);
-                if (!response) {
-                    console.log(response);
+                if (response) {
+                    console.log(`La url ${url} fue exitosa`);
                 }
             }
         }
