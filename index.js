@@ -17,12 +17,12 @@ const login = async (email, clave) => {
 }
 
 //run main
-const getToken = async () => {
+const getTokenAndID = async () => {
     const email = "fsadffa@jiao.co"
     const clave = "12345678"
     const response = await login(email, clave);
-    const token = response.token;
-    return token;
+    const {token,id} = response;
+    return {token,id}
 }
 
 const putApi = async ( url, token ) => {
@@ -40,14 +40,15 @@ const putApi = async ( url, token ) => {
 
 
 const main = async () => {
-    const token = await getToken();
+    const {token,id} = await getTokenAndID();
     let responseResult = '';
     let urlResult = '';
+    console.log(id)
     
     for (let i = 0; i < options.length; i++) {
         for (let j = 0; j < options.length; j++) {
             for (let k = 0; k < options.length; k++) {
-                const url = `2595/2018/${options[i]}${options[j]}${options[k]}`;
+                const url = `${id}/2019/${options[i]}${options[j]}${options[k]}`;
                 const response = await putApi(url, token);
                 console.log(url)
                 if (response) {
