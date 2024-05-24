@@ -6,12 +6,14 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "m1": "RANGE_START=0 RANGE_END=5 EMAIL=fsadffa@jiao.co CLAVE=12345678 node index.js",
-    "m2": "RANGE_START=6 RANGE_END=11 EMAIL=fsadffa@jiao.co CLAVE=12345678 node index.js",
-    "m3": "RANGE_START=12 RANGE_END=17 EMAIL=fsadffa@jiao.co CLAVE=12345678 node index.js",
-    "m4": "RANGE_START=18 RANGE_END=23 EMAIL=fsadffa@jiao.co CLAVE=12345678 node index.js",
-    "m5": "RANGE_START=24 RANGE_END=29 EMAIL=fsadffa@jiao.co CLAVE=12345678 node index.js",
-    "m6": "RANGE_START=30 RANGE_END=36 EMAIL=fsadffa@jiao.co CLAVE=12345678 node index.js"
+    "m1": "RANGE_START=0 RANGE_END=3 node index.js",
+    "m2": "RANGE_START=4 RANGE_END=7 node index.js",
+    "m3": "RANGE_START=8 RANGE_END=11 node index.js",
+    "m4": "RANGE_START=12 RANGE_END=15 node index.js",
+    "m5": "RANGE_START=16 RANGE_END=19 node index.js",
+    "m6": "RANGE_START=20 RANGE_END=23 node index.js",
+    "m7": "RANGE_START=24 RANGE_END=28 node index.js",
+    "m8": "RANGE_START=29 RANGE_END=36 node index.js"
   },
   "keywords": [],
   "author": "",
