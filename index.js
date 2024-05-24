@@ -8,6 +8,7 @@ const api = axios.create({
 
 const options = ["1","2","3","4","5","6","7","8","9","0","A","B","C","D","E","F","G","H","I","J","K","L","M","N","Ñ","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
 
+
 const login = async (email, clave) => {
     try {
         const response = await api.post("login", { email, clave });
@@ -26,8 +27,7 @@ const getTokenAndID = async () => {
     return {token,id}
 }
 
-
-const putApi = async (url, token) => {
+const putApi = async ( url, token ) => {
     try {
         const response = await api.put(url, {}, {
             headers: {
@@ -40,16 +40,19 @@ const putApi = async (url, token) => {
     }
 }
 
+
 const main = async () => {
-    const {token, id} = await getTokenAndID();
+    const {token,id} = await getTokenAndID();
     let responseResult = '';
     let urlResult = '';
-    console.log(id)
+
     const year = process.env.YEAR;
+    const rangeStart = parseInt(process.env.RANGE_START, 10);
+    const rangeEnd = parseInt(process.env.RANGE_END, 10);
     
-    for (let i = options.length - 1; i >= options.length/2 - 1; i--) {
-        for (let j = options.length - 1; j >= 0; j--) {
-            for (let k = options.length - 1; k >= 0; k--) {
+    for (let i = rangeStart; i <= rangeEnd; i++) {
+        for (let j = 0; j < options.length; j++) {
+            for (let k = 0; k < options.length; k++) {
                 const url = `${id}/${year}/${options[i]}${options[j]}${options[k]}`;
                 const response = await putApi(url, token);
                 console.log(url)
@@ -70,7 +73,7 @@ const main = async () => {
     }
     console.log(responseResult);
     console.log(urlResult);
-    if (!responseResult) {
+    if(!responseResult){
         console.log("No se encontró ninguna url exitosa")
     }
 }

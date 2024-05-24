@@ -6,8 +6,12 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "m1": "node maquina1/index.js",
-    "m2": "node maquina2/index.js"
+    "m1": "RANGE_START=0 RANGE_END=5 EMAIL=fsadffa@jiao.co CLAVE=12345678 node index.js",
+    "m2": "RANGE_START=6 RANGE_END=11 EMAIL=fsadffa@jiao.co CLAVE=12345678 node index.js",
+    "m3": "RANGE_START=12 RANGE_END=17 EMAIL=fsadffa@jiao.co CLAVE=12345678 node index.js",
+    "m4": "RANGE_START=18 RANGE_END=23 EMAIL=fsadffa@jiao.co CLAVE=12345678 node index.js",
+    "m5": "RANGE_START=24 RANGE_END=29 EMAIL=fsadffa@jiao.co CLAVE=12345678 node index.js",
+    "m6": "RANGE_START=30 RANGE_END=36 EMAIL=fsadffa@jiao.co CLAVE=12345678 node index.js"
   },
   "keywords": [],
   "author": "",
